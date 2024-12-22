@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Container List</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap; /* Allows items to wrap to the next row if necessary */
+      justify-content: space-between; /* Distributes space between items */
+      width: 100%; /* Ensures the container spans the full width of the page */
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .list-item {
+      flex: 1 1 calc(30% - 20px); /* Adjust the width to fit 3 items per row with spacing */
+      margin: 10px;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .list-item {
+        flex: 1 1 calc(45% - 20px); /* Adjust for smaller screens, 2 items per row */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .list-item {
+        flex: 1 1 100%; /* Adjust for very small screens, 1 item per row */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="list-item">Item 1</div>
+  <div class="list-item">Item 2</div>
+  <div class="list-item">Item 3</div>
+  <div class="list-item">Item 4</div>
+  <div class="list-item">Item 5</div>
+  <div class="list-item">Item 6</div>
+</div>
+
+</body>
+</html>

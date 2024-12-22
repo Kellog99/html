@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    background-color: #2b2d42;
+    display: flex;
+    width: 100%; /* Ensures the container spans the full width of the page */
+    flex-flow: row wrap;
+    justify-content:stretch;
+    padding: 2px;
+    background-color: #f9f9f9;
+}
+.container li{
+    display: flex;
+    flex: 1 1 calc(25% - 20px); /* Adjust the width to fit 3 items per row with spacing */
+    margin: 2px;
+    background-color: darkorchid;
+    list-style-type: none;
+}
+.container a{
+    display: inline-block;
+    padding: 15px;
+    width: 100%;
+    margin: auto; /* horizontally center the element within its container. */
+    text-align: center;
+    text-decoration: none;
+    color: #ffff;
+}
+.container a:hover{
+    background-color: lightsteelblue;
+}
+
+.icon{
+    padding: 0.8rem;
+}
+.searchBox{
+    height: 4vw; /* Adjust the hight to be 4% of the whole height to fit 3 items per row with spacing */
+    border: 0;
+    flex: 1;
+}
+.searchButton{
+    color: white;
+    background: #0f4a8a;
+    border: 0;
+    padding: 2rem;
+    border-radius: 12px;
+}
