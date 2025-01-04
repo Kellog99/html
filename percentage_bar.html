@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progress Bar with JSON</title>
+<style>
+    html{
+        --backgroud-font: #62306D;
+        --width-circle: 200px;
+        --width-border: 1px;
+    }
+    body{
+        background: var(--backgroud-font);
+    }
+    .container{
+        width: var(--width-circle);
+        aspect-ratio: 1;
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .progress-circle {
+        position: absolute;
+        width: calc(var(--width-circle) - var(--width-border));
+        aspect-ratio: 1;
+        left: 50%;
+        transform: translate(-50%, 50%) rotate(90deg);
+        border-radius: 50%;
+        border: var(--width-border) solid black;
+        background: conic-gradient(
+      #4caf50 calc(var(--percent) * 1%), /* Filled portion */
+      #e0e0e0 calc(var(--percent) * 1%) /* Remaining portion */);
+    }
+
+    .block-circle {
+        position: absolute;
+        width: calc(var(--width-circle) - 35px);
+        aspect-ratio: 1;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-50%, 50%);
+        border: var(--width-border) solid black;
+        border-radius: 50%;
+        background: var(--backgroud-font);
+    }
+    .text{
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        translate: -50%;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div id="progress-container">
+  <!-- Progress bar will be created dynamically here -->
+</div>
+
+<script>
+  // Function to load JSON and update the progress bar
+  async function loadProgress() {
+    try {
+      // Fetch JSON data
+      const response = await fetch('data.json');
+      const data = await response.json();
+
+      // Get progress percentage from JSON
+      const progress = data.progress;
+      const progress_radial = progress/2 +50;
+
+      // create the container
+      const container = document.createElement('div');
+      container.className = 'container';
+
+
+      // Create the progress bar dynamically
+      const progressBar = document.createElement('div');
+      progressBar.className = 'progress-circle ';
+      progressBar.style.setProperty('--percent', progress_radial);
+        
+      
+      container.appendChild(progressBar)
+
+      // Create the progress bar dynamically
+      const block = document.createElement('div');
+      block.className = 'block-circle ';
+      
+      container.appendChild(block)
+
+      const text = document.createElement('div');
+      text.className = 'text';
+      text.textContent = `${progress}%`;
+
+      container.appendChild(text)
+      document.getElementById('progress-container').appendChild(container)
+
+
+    } catch (error) {
+      console.error('Error loading JSON:', error);
+    }
+  }
+
+  // Load the progress bar on page load
+  window.onload = loadProgress;
+</script>
+
+</body>
+</html>
