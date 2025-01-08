@@ -9,13 +9,28 @@
             <input class="searchBox" type="search" name ="search" placeholder="Enter text here...">
             <input type="submit" value="Search" class="searchButton">
        </div>
-       <ul class="container">
-        <li><a href="#">Finalmente</a></li>
-        <li><a href="#">Culinary</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-       
+
+       <div id="prova">
+       </div>
+       <script>
+        const div = document.createElement('div');
+        div.className = `container-grid`;
+        div.style.setProperty( "background-color","red")
+        div.style.setProperty('grid-template-columns', 'repeat(3, 1fr)');
+        div.style.setProperty('grid-template-rows', '1fr');
+        div.style.width = "100%";
+        div.style.height="600px";
+
+        for(let i=0; i<3; i++){
+            console.log(i)
+            const rect = document.createElement('div');
+            rect.className = `block`;
+            div.appendChild(rect);
+        }
+        document.getElementById('prova').appendChild(div);
+        document
+       </script>
+
     </body>
     
 </html>

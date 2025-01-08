@@ -1,0 +1,8 @@
+{
+    "name": "model1",
+    "params": 10201239,
+    "task":"classification", 
+    "domain":"RGB", 
+    "shape_input": "3x28x28",
+    "dataset": 40000
+}

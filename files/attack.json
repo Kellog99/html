@@ -1,0 +1,37 @@
+{    
+    "atk1":{
+        "misclassification": 20, 
+        "robustness":0.1,
+        "type": "white",
+        "power": 2.3,
+        "num_queries": 1000 
+    },
+    "atk2":{
+        "misclassification": 10, 
+        "robustness":0.2,
+        "type": "white",
+        "power": 2.3,
+        "num_queries": 1000
+    },
+    "atk3":{
+        "misclassification": 40, 
+        "robustness":0.6,
+        "type": "white",
+        "power": 2.3,
+        "num_queries": 1000
+    },
+    "atk4":{
+        "misclassification": 50, 
+        "robustness":0.2,
+        "type": "black",
+        "power": 2.3,
+        "num_queries": 1000
+    },
+    "atk5":{
+        "misclassification": 60, 
+        "robustness":0.3,
+        "type": "black",
+        "power": 2.3,
+        "num_queries": 1000
+    }
+}
